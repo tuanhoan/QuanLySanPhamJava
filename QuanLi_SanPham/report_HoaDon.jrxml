@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.16.0.final using JasperReports Library version 6.16.0-48579d909b7943b64690c65c71e07e0b80981928  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report_Hoa?on" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="27813cd7-e318-4a99-b971-a49047472a4c">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="data"/>
+	<queryString language="SQL">
+		<![CDATA[Select HOADON.MAHD, HOADON.NGAYMUA, SANPHAM.TENSP, CHITIETHOADON.SOLUONG, SANPHAM.DONGIA, NHANVIEN.TENNV from CHITIETHOADON, HOADON, SANPHAM, NHANVIEN
+where CHITIETHOADON.MAHD = HOADON.MAHD and HOADON.MANV = NHANVIEN.MANV and CHITIETHOADON.MASP = SANPHAM.MASP]]>
+	</queryString>
+	<field name="MAHD" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="MAHD"/>
+		<property name="com.jaspersoft.studio.field.label" value="MAHD"/>
+	</field>
+	<field name="NGAYMUA" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.name" value="NGAYMUA"/>
+		<property name="com.jaspersoft.studio.field.label" value="NGAYMUA"/>
+	</field>
+	<field name="TENSP" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="TENSP"/>
+		<property name="com.jaspersoft.studio.field.label" value="TENSP"/>
+	</field>
+	<field name="SOLUONG" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="SOLUONG"/>
+		<property name="com.jaspersoft.studio.field.label" value="SOLUONG"/>
+	</field>
+	<field name="DONGIA" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.name" value="DONGIA"/>
+		<property name="com.jaspersoft.studio.field.label" value="DONGIA"/>
+	</field>
+	<field name="TENNV" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="TENNV"/>
+		<property name="com.jaspersoft.studio.field.label" value="TENNV"/>
+	</field>
+	<variable name="DONGIA1" class="java.lang.Long" resetType="Group" resetGroup="HoaDon" calculation="Sum">
+		<variableExpression><![CDATA[$F{DONGIA}]]></variableExpression>
+	</variable>
+	<group name="MAHD">
+		<groupExpression><![CDATA[$F{MAHD}]]></groupExpression>
+	</group>
+	<group name="HoaDon">
+		<groupExpression><![CDATA[$F{MAHD}]]></groupExpression>
+		<groupHeader>
+			<band height="27">
+				<rectangle>
+					<reportElement x="-20" y="0" width="595" height="20" uuid="2a0d29b2-92eb-4068-9a7a-5b6b4b7bebbe"/>
+				</rectangle>
+				<textField>
+					<reportElement x="-20" y="0" width="80" height="17" uuid="25b2abf6-2d81-4f6e-848a-6fb2c6d57f95"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$F{MAHD}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="25">
+				<textField>
+					<reportElement x="450" y="0" width="100" height="20" uuid="9fbc8f4a-c9ee-4211-bfd1-f323c78a122f"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$V{DONGIA1}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="340" y="0" width="100" height="20" uuid="0386e8dc-06a6-47df-a797-beea3c367017">
+						<property name="com.jaspersoft.studio.element.name" value="Tổng Tiền"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA["Tổng Tiền:"]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="-20" y="-20" width="590" height="99" uuid="2499d3c2-d183-47ad-aad2-6a2d0f2c4d2a">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None">
+					<font size="26"/>
+				</textElement>
+				<text><![CDATA[Phiếu Báo Cáo]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="25" splitType="Stretch">
+			<rectangle>
+				<reportElement x="-20" y="0" width="595" height="20" uuid="d8b89abe-cdc7-406f-a60f-2e336d69bb9f"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="60" y="0" width="100" height="20" uuid="3d19862e-b60a-4ede-b7fa-4df1ff168dae">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e887d04b-382a-48d4-8ce3-1a9e36bee5e4"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Ngày Mua]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="160" y="0" width="100" height="20" uuid="e170489a-ad0b-4dcc-adef-70faf6481c9e">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ba131fbb-10fa-4131-ab49-acea01b48b82"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Tên Sản Phẩm]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="260" y="0" width="100" height="20" uuid="50f34315-7c10-4858-a4de-1565337c761a">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="58bff6bb-b8f2-41ed-97ef-29af96aa6957"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Số Lượng]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="360" y="0" width="90" height="20" uuid="d76fd3bb-99c7-4e34-bd8d-ffe71f5854e1">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="211707f2-3558-420b-9a06-82ed68a778fc"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Đơn Giá]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="450" y="0" width="125" height="20" uuid="3cd55818-3a86-42e2-a8ae-fd7b5227303b">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="23aaf9c4-4d40-4e2c-9d30-0c43d6e563aa"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Tên Nhân Viên]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-20" y="2" width="80" height="20" uuid="8dab5642-ebb8-47ed-8e2c-ecc7ee0177f1">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e887d04b-382a-48d4-8ce3-1a9e36bee5e4"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Mã Hoá Đơn]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<property name="com.jaspersoft.studio.layout"/>
+			<textField>
+				<reportElement x="60" y="0" width="100" height="20" uuid="456ca64b-cf73-41cc-b96e-c57de9c70a96">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e887d04b-382a-48d4-8ce3-1a9e36bee5e4"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{NGAYMUA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="160" y="0" width="100" height="20" uuid="23afa4e5-d1bb-4cc5-b8c8-ec110b7e4f12">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ba131fbb-10fa-4131-ab49-acea01b48b82"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{TENSP}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="260" y="0" width="100" height="20" uuid="4e8e9034-db5b-4f8c-9520-09171f24cbdd">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="58bff6bb-b8f2-41ed-97ef-29af96aa6957"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{SOLUONG}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="360" y="0" width="100" height="20" uuid="9d37ca88-a55e-411e-801c-2e1ff960fe00">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="211707f2-3558-420b-9a06-82ed68a778fc"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{DONGIA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="460" y="0" width="115" height="20" uuid="b055b914-d522-4487-ab80-ff481cf0f829">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="23aaf9c4-4d40-4e2c-9d30-0c43d6e563aa"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{TENNV}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

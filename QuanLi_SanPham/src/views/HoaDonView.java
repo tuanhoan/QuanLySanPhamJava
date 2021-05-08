@@ -3,9 +3,11 @@ package views;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
+import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -23,6 +25,7 @@ public class HoaDonView extends JPanel {
 	private JTable hoaDonTable;
 	String[] columns = { "Stt", "Mã HD", "Ngày mua", "Mã nhân viên", "Tổng tiền" };
 	Object[][] data = new Object[][] {};
+	private JButton rpButton;
 
 	// PHẦN CHI TIẾT HÓA ĐƠN
 	private JTable chiTietHDTable;
@@ -35,6 +38,8 @@ public class HoaDonView extends JPanel {
 
 	public HoaDonView() {
 		JPanel mainJpanel = new JPanel();
+		rpButton = new JButton("Xuất Report");
+		//thanhToanBtn.addActionListener(this);
 		hoaDonTable = new JTable();
 		hoaDonTable.setModel(new DefaultTableModel(data, columns));
 		JScrollPane jScrollPaneHoaDon = new JScrollPane();
@@ -47,6 +52,7 @@ public class HoaDonView extends JPanel {
 		jScrollPaneHoaDon2.setViewportView(chiTietHDTable);
 		jScrollPaneHoaDon2.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(Color.black),
 				"Chi tiết hóa đơn", TitledBorder.CENTER, TitledBorder.CENTER, new Font("Tahoma", Font.BOLD, 14)));
+		mainJpanel.add(rpButton);
 		SpringLayout layout = new SpringLayout();
 		mainJpanel.setLayout(layout);
 		mainJpanel.add(jScrollPaneHoaDon);
@@ -61,8 +67,14 @@ public class HoaDonView extends JPanel {
 		layout.putConstraint(SpringLayout.NORTH, jScrollPaneHoaDon2, 0, SpringLayout.NORTH, mainJpanel);
 		layout.putConstraint(SpringLayout.SOUTH, jScrollPaneHoaDon2, -200, SpringLayout.SOUTH, mainJpanel);
 		layout.putConstraint(SpringLayout.EAST, jScrollPaneHoaDon2, 0, SpringLayout.EAST, mainJpanel);
+	
+		
+		layout.putConstraint(SpringLayout.WEST, rpButton, 450, SpringLayout.WEST, mainJpanel);
+		layout.putConstraint(SpringLayout.VERTICAL_CENTER, rpButton, 200, SpringLayout.VERTICAL_CENTER, mainJpanel);
 		this.setLayout(new BorderLayout());
 		this.add(mainJpanel, BorderLayout.CENTER);
+
+		
 	}
 
 	// Show DANH SÁCH SẢN PHẨM TỪ DATABASE VÀO TABLE
@@ -105,6 +117,10 @@ public class HoaDonView extends JPanel {
 
 	public void ClickOnTable(ListSelectionListener l) {
 		hoaDonTable.getSelectionModel().addListSelectionListener(l);
+	}
+
+	public void report(ActionListener l) {
+		rpButton.addActionListener(l);
 	}
 
 }

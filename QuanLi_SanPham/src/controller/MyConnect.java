@@ -14,7 +14,7 @@ public class MyConnect {
 		port = "1433";
 		db_name = "QUANLISANPHAM";
 		db_user = "tuanhoan";
-		db_pass = "123456";
+		db_pass = "1";
 	}
 
 	public Connection getcn() {
