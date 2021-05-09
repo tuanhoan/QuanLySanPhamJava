@@ -8,5 +8,13 @@
 	</classpathentry>
 	<classpathentry kind="lib" path="libs/mssql-jdbc-7.2.2.jre8.jar"/>
 	<classpathentry kind="lib" path="libs/sqljdbc4-2.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Administrator/Downloads/commons-beanutils-1.9.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Administrator/Downloads/commons-digester-2.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Administrator/Downloads/commons-logging-1.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Administrator/Downloads/jasperreports-6.16.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Administrator/Downloads/jaspersoft/jaspersoft/groovy-all-2.0.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Administrator/Downloads/commons-collections4-4.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Administrator/Downloads/jaspersoft/jaspersoft/iText-2.1.7.js2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Administrator/Downloads/jaspersoft/jaspersoft/iTextAsian.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
